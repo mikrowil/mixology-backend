@@ -4,6 +4,13 @@ const User = mongoose.model('User')
 
 const AUTH_ERROR_MSG = 'You must log in'
 
+/**
+ * Middleware for checking authorization
+ * @param req - incoming request
+ * @param res - response from server
+ * @param next - move on to next when called
+ * @returns {*}
+ */
 module.exports = (req, res, next) => {
     const {authorization} = req.headers
 

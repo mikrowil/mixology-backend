@@ -5,6 +5,9 @@ const User = mongoose.model('User')
 
 const router = express.Router()
 
+/**
+ * Post request that sign the user up for mixology
+ */
 router.post('/signup', async (req, res) => {
     const {email, password} = req.body
 
@@ -22,6 +25,9 @@ router.post('/signup', async (req, res) => {
     }
 })
 
+/**
+ * Post request to allow user to sign in
+ */
 router.post('/signin', async (req, res) => {
     const {email, password} = req.body
 
