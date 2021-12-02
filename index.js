@@ -26,8 +26,8 @@ mongoose.connection.on('error', err => {
     console.log(`Error connecting to mongoose. MSG ${err}`)
 })
 
-app.get('/', authRequire, (req, res) => {
-    res.send(`Your email is ${req.user.email}`)
+app.get('/', (req, res) => {
+    res.send("Welcome to the mixology backend!")
 })
 
 app.listen(PORT, () => {
