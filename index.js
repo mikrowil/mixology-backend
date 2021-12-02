@@ -14,7 +14,7 @@ app.use(bodyParser.json())
 app.use(authRoutes)
 app.use(fetchRoutes)
 
-const PORT = 2230 | process.env.PORT
+const PORT = 2230 || process.env.PORT
 
 const mongoURI = process.env.MONGO_URI + "?retryWrites=true&w=majority"
 
