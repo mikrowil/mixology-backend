@@ -16,7 +16,7 @@ app.use(fetchRoutes)
 
 const PORT = 2230
 
-const mongoURI = process.env.MONGO_URI
+const mongoURI = process.env.MONGO_URI + "?retryWrites=true&w=majority"
 
 mongoose.connect(mongoURI)
 mongoose.connection.on('connected', () => {
