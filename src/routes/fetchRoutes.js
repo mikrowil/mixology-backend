@@ -1,9 +1,13 @@
 const express = require('express')
 const dotenv = require('dotenv')
 const axios = require('axios')
+const authRequire = require("../middleware/authRequire");
 
 dotenv.config()
 const router = express.Router()
+
+
+router.use(authRequire);
 
 /**
  *  axios object to make web requests

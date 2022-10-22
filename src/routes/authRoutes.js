@@ -2,8 +2,9 @@ const express = require('express')
 const jwt = require('jsonwebtoken')
 const mongoose = require('mongoose')
 const User = mongoose.model('User')
-
 const router = express.Router()
+
+
 
 /**
  * Post request that sign the user up for mixology
@@ -17,7 +18,7 @@ router.post('/signup', async (req, res) => {
         await user.save()
 
 
-        const token = jwt.sign({userID: user._id}, 'MY_SECRET_KEY')
+        const token = jwt.sign({userID: user._id}, process.env.SECRET_KEY)
 
         res.send({token})
     } catch (err) {
@@ -43,7 +44,7 @@ router.post('/signin', async (req, res) => {
 
     try{
         await user.comparePassword(password)
-        const token = jwt.sign({userID: user._id}, 'MY_SECRET_KEY')
+        const token = jwt.sign({userID: user._id}, process.env.SECRET_KEY)
         res.send({token})
     }catch (e){
         return res.status(422).send({error:'Invalid password or email'})

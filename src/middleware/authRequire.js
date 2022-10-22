@@ -21,7 +21,7 @@ module.exports = (req, res, next) => {
     const token = authorization.replace('Bearer ', '')
     jwt.verify(
         token,
-        'MY_SECRET_KEY',
+        process.env.SECRET_KEY,
         async (err, payload) => {
             if (err){
                 return res.status(401).send({error: AUTH_ERROR_MSG})
